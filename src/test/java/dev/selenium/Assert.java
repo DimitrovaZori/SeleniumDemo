@@ -52,6 +52,14 @@ public class Assert {
            String remove = buttonRemove.getAttribute("type");
            assertEquals(remove, "submit");
 
+          String content = buttonRemove.getText();
+           assertEquals(content, "Remove" );
+
+           String cssValue =buttonRemove.getCssValue("background-color");
+           assertEquals(cssValue,"rgba(255, 255, 255, 1)");
+
+           String tagName = buttonRemove.getTagName();
+           assertEquals(tagName, "button");
 
 
         }
