@@ -31,6 +31,7 @@ public class ActionsAndSelect {
         drag.clickAndHold (source).moveToElement(target).release().perform();
     }
 
+// @Test
 // public void clickAndHold() {
 //        driver.get("https://the-internet.herokuapp.com/key_presses?");
 
@@ -41,6 +42,18 @@ public class ActionsAndSelect {
  //       String content = entered.getText();
  //       assertEquals(content,"You entered: ESCAPE");
 //    }
+
+ // @Test
+
+ //   public void dropDownTest() {
+  //      driver.get("https://the-internet.herokuapp.com/dropdown");
+
+  //   WebElement select = driver.findElement(By.id("dropdown"));
+
+    //    Select dropDown = new Select(select);
+    //    dropDown.selectByVisibleText("Option 1");
+     //   dropDown.selectByValue("2");
+ //   }
 
     @AfterMethod
 
