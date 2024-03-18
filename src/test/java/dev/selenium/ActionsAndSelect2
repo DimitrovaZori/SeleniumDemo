@@ -55,6 +55,21 @@ public class ActionsAndSelect {
      //   dropDown.selectByValue("2");
  //   }
 
+//  @Test/tables
+
+  //  public void column (){
+  //      driver.get("https://the-internet.herokuapp.com/tables");
+
+   //     List<WebElement> emails = driver.findElements(By.xpath("//table[@id = 'table1']/tbody/tr/td[3]"));
+   //     for (WebElement email: emails){
+    //        System.out.println(email.getText());
+   //     }
+
+
+
+
+    }
+
     @AfterMethod
 
     public void after () {
