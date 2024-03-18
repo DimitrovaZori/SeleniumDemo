@@ -29,9 +29,18 @@ public class ActionsAndSelect {
         Thread.sleep(2000);
 
         drag.clickAndHold (source).moveToElement(target).release().perform();
-
-
     }
+
+// public void clickAndHold() {
+//        driver.get("https://the-internet.herokuapp.com/key_presses?");
+
+ //       WebElement input = driver.findElement(By.id("target"));
+ //       input.sendKeys(Keys.ESCAPE);
+
+  //      WebElement entered = driver.findElement(By.id("result"));
+ //       String content = entered.getText();
+ //       assertEquals(content,"You entered: ESCAPE");
+//    }
 
     @AfterMethod
 
