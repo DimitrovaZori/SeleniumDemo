@@ -29,6 +29,27 @@ public class ActionsAndSelect {
 
     }
 
+@Test
+
+    public void dynamicControl(){
+
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("https://the-internet.herokuapp.com/dynamic_controls");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        WebElement check = driver.findElement(By.cssSelector("[type=checkbox]"));
+        check.click();
+
+        WebElement removeButton = driver.findElement(By.xpath("//button[contains(text(),'Remove')]"));
+        removeButton.click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("message")));
+
+        assertEquals("It's gone!",driver.findElement(By.id("message")).getText());
+
+    }
+
     @AfterMethod
 
     public void after () {
