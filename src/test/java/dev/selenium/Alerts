@@ -1,0 +1,49 @@
+ @Test
+
+    public void acceptAlertTest(){
+        driver.get("https://the-internet.herokuapp.com/javascript_alerts");
+
+        WebElement clickJs = driver.findElement(By.xpath("//button[contains(text(), 'Click for JS Alert')]"));
+        clickJs.click();
+
+       // driver.switchTo().alert().accept();
+
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+
+        WebElement result = driver.findElement(By.id("result"));
+        assertEquals("You successfully clicked an alert",result.getText());
+
+    }
+
+    @Test
+
+    public void buttonConfirm(){
+        driver.get("https://the-internet.herokuapp.com/javascript_alerts");
+
+        WebElement confirmJs = driver.findElement(By.xpath("//button[contains(text(), 'Click for JS Confirm')]"));
+        confirmJs.click();
+
+        driver.switchTo().alert().dismiss();
+
+        WebElement message = driver.findElement(By.id("result"));
+        assertEquals("You clicked: Cancel",message.getText());
+
+    }
+
+    @Test
+
+    public void buttonPrompt(){
+        driver.get("https://the-internet.herokuapp.com/javascript_alerts");
+
+        WebElement promtJs = driver.findElement(By.xpath("//button[contains(text(), 'Click for JS Prompt')]"));
+        promtJs.click();
+
+        Alert alert = driver.switchTo().alert();
+        alert.sendKeys("Today");
+        alert.accept();
+
+        WebElement info = driver.findElement(By.id("result"));
+        assertEquals("You entered: Today",info.getText());
+
+    }
