@@ -20,8 +20,9 @@
 
     public void buttonConfirm(){
         driver.get("https://the-internet.herokuapp.com/javascript_alerts");
-
-        WebElement confirmJs = driver.findElement(By.xpath("//button[contains(text(), 'Click for JS Confirm')]"));
+ 
+    //WebElement confirmJs = driver.findElement(By.cssSelector("[onclick = 'jsConfirm()']"));        
+      WebElement confirmJs = driver.findElement(By.xpath("//button[contains(text(), 'Click for JS Confirm')]"));
         confirmJs.click();
 
         driver.switchTo().alert().dismiss();
