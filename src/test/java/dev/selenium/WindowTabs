@@ -1,0 +1,33 @@
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import java.util.ArrayList;
+import static org.testng.AssertJUnit.assertEquals;
+
+public class ActionsAndSelect {
+    WebDriver driver;
+    @BeforeMethod
+
+    public void before (){
+        driver = new ChromeDriver();
+
+    }
+@Test
+
+    public void newTabTest(){
+        driver.get("https://the-internet.herokuapp.com/windows");
+        WebElement link = driver.findElement(By.linkText("Click Here"));
+        link.click();
+       //We make list of all tabs
+        ArrayList <String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+
+        WebElement header = driver.findElement(By.tagName("h3"));
+        String headerText = header.getText();
+        assertEquals("New Window", headerText);
+
+        driver.close();
+        driver.switchTo().window(tabs.get(0));
+    }
