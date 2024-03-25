@@ -31,3 +31,22 @@ public class ActionsAndSelect {
         driver.close();
         driver.switchTo().window(tabs.get(0));
     }
+
+ @Test
+    public void nestedFramesTests(){
+        driver.get("https://the-internet.herokuapp.com/frames");
+
+        driver.findElement(By.linkText("Nested Frames")).click();
+        driver.switchTo().frame("frame-top");
+        driver.switchTo().frame("frame-left");
+
+        WebElement leftElement = driver.findElement(By.tagName("body"));
+        leftElement.getText();
+
+        //to go upper to frame-top
+
+        driver.switchTo().parentFrame();
+
+        driver.switchTo().defaultContent();
+
+    }
