@@ -4,7 +4,12 @@
 
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
     private WebElement product;
+ 
+    @FindBy(className = "shopping_cart_link")
+    private WebElement choosenProduct;
 
+    @FindBy (id = "remove-sauce-labs-backpack")
+    private WebElement remove;
 ---
 
 
@@ -15,6 +20,16 @@
 
     public String getError() {
         return error.getText();
+    }
+
+    public ProductsPage buyProduct() {
+        choosenProduct.click();
+        return new ProductsPage(driver);
+    }
+
+    public ProductsPage removeProduct() {
+        remove.click();
+        return new ProductsPage(driver);
     }
 
 
@@ -33,13 +48,13 @@
 
     }
 
-    @Test
+     @Test
     public void testSuccessful() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.setUsername("standard_user");
         loginPage.setPassword("secret_sauce");
         productsPage= loginPage.clickLoginButton();
-       productsPage = loginPage.selectProduct();
-
-
+        productsPage = loginPage.selectProduct();
+        productsPage =loginPage.buyProduct();
+        productsPage = loginPage.removeProduct();
     }
