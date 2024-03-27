@@ -8,10 +8,10 @@ import org.openqa.selenium.support.PageFactory;
 public class ProductsPage extends BasePage{
 
 
-    @FindBy (className = "title");
+    @FindBy(className = "title")
     private WebElement pageTitle;
 
-    public ProductsPage(WebElement driver){
+    public ProductsPage(WebDriver driver){
        super(driver);
 
     }
