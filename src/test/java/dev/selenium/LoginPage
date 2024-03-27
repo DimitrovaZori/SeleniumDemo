@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
 
-     @FindBy(id = "user-name")
+    @FindBy(id = "user-name")
     private WebElement usernameInput;
 
     //private By userName = By.id(""); nqma da ima nujda ot public LoginPage
@@ -20,23 +20,21 @@ public class LoginPage extends BasePage {
     @FindBy(id = "login-button")
     private WebElement loginButton;
 
-    public LoginPage (WebDriver driver){
-       super(driver);
+    public LoginPage(WebDriver driver) {
+        super(driver);
     }
 
-    public void setUsername(String username){
+    public void setUsername(String username) {
         usernameInput.sendKeys(username);
     }
 
-    public void setPassword(String password){
+    public void setPassword(String password) {
         passwordInput.sendKeys(password);
     }
 
-    public ProductsPage clickLoginButton(){
+
+    public ProductsPage clickLoginButton() {
         loginButton.click();
-      // return new ProductsPage(driver);
-
+        return new ProductsPage(driver);
     }
-
-
 }
