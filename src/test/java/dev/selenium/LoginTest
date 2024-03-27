@@ -30,6 +30,8 @@ public class LoginTest {
         //ot saita se vzimat vhodnite danni
         loginPage.setPassword("secret_sauce");
         ProductsPage productsPage= loginPage.clickLoginButton();
+        productsPage = new ProductsPage(driver);
+
 
         assertEquals(productsPage.getPageTitle(), "Products");
     }
