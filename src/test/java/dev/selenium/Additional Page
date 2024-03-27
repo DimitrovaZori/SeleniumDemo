@@ -1,0 +1,45 @@
+//LoginPage
+@FindBy(css = "[data-test=error]")
+    private WebElement error;
+
+    @FindBy(id = "add-to-cart-sauce-labs-backpack")
+    private WebElement product;
+
+---
+
+
+    public ProductsPage selectProduct() {
+        product.click();
+        return new ProductsPage(driver);
+    }
+
+    public String getError() {
+        return error.getText();
+    }
+
+
+
+//Login Test
+
+ @Test
+    public void testNotValidLogin(){
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.setUsername("");
+        loginPage.setPassword("secret_sauce");
+        loginPage.clickLoginButton();
+
+        assertEquals(loginPage.getError(),"Epic sadface: Username is required");
+
+
+    }
+
+    @Test
+    public void testSuccessful() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.setUsername("standard_user");
+        loginPage.setPassword("secret_sauce");
+        productsPage= loginPage.clickLoginButton();
+       productsPage = loginPage.selectProduct();
+
+
+    }
