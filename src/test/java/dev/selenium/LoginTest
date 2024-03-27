@@ -34,5 +34,9 @@ public class LoginTest {
 
         assertEquals(productsPage.getPageTitle(), "Products");
     }
+@AfterMethod
+public vod tearDown(){
+driver.quit();
+}
 
 }
